@@ -1,5 +1,5 @@
 import './App.css';
-import TripStops from './TripStops';
+import TripStops from '../TripStops/TripStops';
 import { Button } from '@headlessui/react';
 
 function App() {
