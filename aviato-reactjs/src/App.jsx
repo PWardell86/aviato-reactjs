@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import TripStops from './TripStops';
+import { Button } from '@headlessui/react';
 
 function App() {
-
   return (
     <>
-
+      <TripStops />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
