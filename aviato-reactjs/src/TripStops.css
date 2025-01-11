@@ -1,0 +1,4 @@
+.stops  {
+  display: flex ;
+  flex-direction: column;
+}
