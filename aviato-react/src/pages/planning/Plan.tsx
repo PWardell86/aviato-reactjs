@@ -1,23 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Stop } from '../../components/Stop/Stop'
 
+import { Button } from '@mantine/core';
+
 interface FormData {
-  value1: string;
-  value2: string;
-  value3: string;
+  country: string;
+  city: string;
+  activity: string[];
 }
 
-export const Plan: React.FC = () => {
-  const [items, setItems] = useState<FormData[]>([{ value1: '', value2: '', value3: '' }]);
-
-  const handleInputChange = (index: number, field: 'value1' | 'value2' | 'value3', value: string) => {
-    const updatedItems = [...items];
-    updatedItems[index] = {
-      ...updatedItems[index],
-      [field]: value,
-    };
-    setItems(updatedItems);
-  };
+export function Plan () {
+  const [items, setItems] = useState<FormData[]>([{ country: '', city: '', activity: [] }]);
 
   const handleSubmit = () => {
     // Send a request with the state values
@@ -37,23 +30,18 @@ export const Plan: React.FC = () => {
   };
 
   const addItem = () => {
-    setItems([...items, { value1: '', value2: '', value3: '' }]);
+    setItems([...items, { country: '', city: '', activity: [] }]);
   };
 
   return (
-    <div>
-      <button onClick={addItem}>Add Item</button>
+    <div className="bg-opacity-90 bg-slate-200 m-auto align-middle w-[40vw] h-[95vh] rounded-2xl">
       {items.map((item, index) => (
+        <>
         <Stop
-          key={index}
-          index={index}
-          value1={item.value1}
-          value2={item.value2}
-          value3={item.value3}
-          onChange={handleInputChange}
+        id={index}
         />
+        </>
       ))}
-      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
